@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Little Story</title>
+    <link rel="stylesheet" href="timeline.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1 class="title">Our Little Story</h1>
+            <div class="user-profile">
+                <img id="user-photo" src="" alt="User Photo">
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="timeline-container" id="timeline">
+            <!-- Memories will be dynamically added here -->
+        </div>
+    </main>
+
+    <button id="add-memory-btn">+</button>
+
+    <div id="memory-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add a new memory</h2>
+            <form id="memory-form">
+                <input type="date" id="memory-date" required>
+                <input type="text" id="memory-emoji" placeholder="Add some emojis ✨" required>
+                <textarea id="memory-text" placeholder="Describe your beautiful memory..." required></textarea>
+                <button type="submit">Add Memory</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="timeline.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: #fff0f5;
+    color: #555;
+}
+
+nav {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    color: #ee9ca7;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+#user-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid #ee9ca7;
+}
+
+#logout-btn {
+    background: #ee9ca7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#logout-btn:hover {
+    background: #d07d89;
+}
+
+main {
+    padding-top: 80px;
+}
+
+.timeline-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: #ffdde1;
+}
+
+.memory-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+    position: relative;
+    width: calc(50% - 40px);
+}
+
+.memory-card:nth-child(odd) {
+    left: 0;
+}
+
+.memory-card:nth-child(even) {
+    left: calc(50% + 40px);
+}
+
+.memory-card::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border: 2px solid #ffdde1;
+    border-radius: 50%;
+}
+
+.memory-card:nth-child(odd)::after {
+    right: -48px;
+}
+
+.memory-card:nth-child(even)::after {
+    left: -48px;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.memory-card .date {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.memory-card .text {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.memory-card .emojis {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.heart-animation {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5rem;
+    color: #ee9ca7;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+#add-memory-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #ee9ca7;
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#add-memory-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: slideIn 0.3s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #ee9ca7;
+}
+
+#memory-form input,
+#memory-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#memory-form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #ee9ca7;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .timeline-container::before {
+        left: 20px;
+    }
+
+    .memory-card {
+        width: calc(100% - 40px);
+        left: 40px !important;
+    }
+
+    .memory-card::after {
+        left: -28px !important;
+    }
+}

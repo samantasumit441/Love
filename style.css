@@ -1,1 +1,95 @@
-/* Add styles here */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    overflow: hidden;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+#login-btn {
+    display: inline-flex;
+    align-items: center;
+    background: #fff;
+    color: #333;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+#login-btn img {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('https://emojipedia-us.s3.amazonaws.com/source/skype/289/red-heart_2764-fe0f.png') no-repeat center center/contain;
+    animation: float 10s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
