@@ -16,17 +16,20 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 const loginBtn = document.getElementById('login-btn');
 
+// Listen for authentication state changes
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        // User is signed in, redirect to the timeline page.
+        window.location.href = 'timeline.html';
+    } else {
+        // User is signed out.
+        console.log('User is signed out.');
+    }
+});
+
 loginBtn.addEventListener('click', () => {
     auth.signInWithPopup(provider)
-        .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const credential = result.credential;
-            const token = credential.accessToken;
-            // The signed-in user info.
-            const user = result.user;
-            // Redirect to the timeline page
-            window.location.href = 'timeline.html';
-        }).catch((error) => {
+        .catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
             const errorMessage = error.message;
@@ -34,7 +37,7 @@ loginBtn.addEventListener('click', () => {
             const email = error.email;
             // The firebase.auth.AuthCredential type that was used.
             const credential = error.credential;
-            console.error(errorMessage);
+            console.error('Authentication Error:', errorMessage);
         });
 });
 
